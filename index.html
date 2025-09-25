@@ -1,57 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Juego de Ajedrez - Responsive</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajedrez Responsivo</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="app">
-    <section class="board-wrap card">
-      <div class="header">
-        <div>
-          <div class="title">Ajedrez - Mobile</div>
-          <div class="sub">Juego responsivo con diseño profesional — táctil y por mouse</div>
-        </div>
-        <div class="sub">Turno: <strong id="turnLabel">Blancas</strong></div>
-      </div>
-
-      <div id="board" class="board" role="grid" aria-label="Tablero de ajedrez"></div>
-
-      <div style="display:flex;justify-content:center;gap:8px;margin-top:8px">
-        <button id="undoBtn">Deshacer</button>
-        <button id="newBtn" class="primary">Nuevo juego</button>
-      </div>
-      <div class="footer">Consejo: toca una pieza para ver movimientos. Promoción a Dama automática.</div>
-    </section>
-
-    <aside class="side">
-      <div class="card panel">
-        <h4>Control</h4>
-        <div class="controls">
-          <button id="flipBtn">Voltear tablero</button>
-          <button id="hintBtn">Mostrar movimientos</button>
-        </div>
-      </div>
-
-      <div class="card panel">
-        <h4>Movimientos</h4>
-        <div id="moveList" class="moves">—</div>
-      </div>
-
-      <div class="card panel">
-        <h4>Estado</h4>
-        <div style="color:var(--muted);">
-          Juego sin detección de jaque mate en esta versión. 
-          Soporta: movimientos legales básicos, capturas y promoción.
-        </div>
-      </div>
-    </aside>
-  </main>
+  <div class="container">
+    <h1>♟ Juego de Ajedrez ♟</h1>
+    <div id="board"></div>
+    <div class="controls">
+      <button onclick="resetGame()">Nuevo Juego</button>
+      <button onclick="undoMove()">Deshacer</button>
+      <button onclick="flipBoard()">Voltear</button>
+      <button onclick="toggleMoves()">Mostrar movimientos</button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
