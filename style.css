@@ -1,103 +1,129 @@
 /* Estilos generales */
 body {
   font-family: Arial, sans-serif;
-  background: #1b263b;
+  background: #f2f2f2;
   margin: 0;
   padding: 0;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
 }
 
 /* Contenedor principal */
 .container {
   display: flex;
-  flex-wrap: wrap; /* Permite que los elementos se acomoden */
+  flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  gap: 15px;
-  padding: 15px;
-  max-width: 1000px;
-  width: 100%;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Panel izquierdo (turno, tablero, botones) */
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Turno */
+#turn {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 8px 12px;
+  background: #1a1a2e;
+  color: #fff;
+  border-radius: 8px;
 }
 
 /* Tablero */
 #board {
-  width: 100%;
-  max-width: 480px;   /* tamaño máximo en PC */
-  aspect-ratio: 1/1;  /* siempre cuadrado */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(8, 50px);
+  grid-template-rows: repeat(8, 50px);
+  gap: 0;
+  border: 3px solid #333;
+  border-radius: 8px;
   overflow: hidden;
 }
 
-/* Historial de movimientos */
-#history {
-  flex: 1;
-  min-width: 250px;
-  background: #0d1b2a;
-  color: #fff;
-  padding: 12px;
-  border-radius: 12px;
-  max-height: 480px;
-  overflow-y: auto;
+/* Casillas */
+.square {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  cursor: pointer;
 }
-
-#history h2 {
-  text-align: center;
-  font-size: 18px;
-  margin-bottom: 10px;
-  border-bottom: 2px solid #1d4ed8;
-  padding-bottom: 5px;
+.white {
+  background: #eee;
 }
-
-/* Texto del turno */
-#turn {
-  background: #0d1b2a;
+.black {
+  background: #666;
   color: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 16px;
 }
 
 /* Botones */
+.buttons {
+  display: flex;
+  gap: 10px;
+}
 button {
-  background: #1d4ed8;
-  border: none;
+  background: #0055aa;
   color: white;
-  padding: 10px 14px;
-  border-radius: 8px;
-  margin: 6px;
-  cursor: pointer;
-  font-weight: bold;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
   font-size: 14px;
-  transition: 0.2s;
+  cursor: pointer;
 }
-
 button:hover {
-  background: #2563eb;
-  transform: scale(1.05);
+  background: #003f7f;
 }
 
-/* --- Responsive para móviles --- */
+/* Historial */
+#history {
+  background: #0f172a;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  width: 220px;
+  min-height: 350px;
+}
+#history h2 {
+  margin-top: 0;
+}
+#movesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+/* --- Responsive para celulares --- */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;
+    flex-direction: column;  /* Cambia de fila a columna */
     align-items: center;
   }
 
   #board {
-    max-width: 100%;  /* Tablero ocupa todo el ancho */
+    grid-template-columns: repeat(8, 40px);
+    grid-template-rows: repeat(8, 40px);
+  }
+
+  .square {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
   }
 
   #history {
-    width: 100%;
-    max-height: 200px; /* Menos alto en celular */
+    width: 90%;
+    min-height: 200px;
+    margin-top: 15px;
   }
 }
+
+
 
