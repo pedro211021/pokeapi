@@ -21,7 +21,7 @@ const pieces = {
   R:"♖", N:"♘", B:"♗", Q:"♕", K:"♔", P:"♙"
 };
 
-// Crear tablero
+// Crear tablero en pantalla
 function createBoard() {
   boardElement.innerHTML = "";
   for (let row = 0; row < 8; row++) {
@@ -31,19 +31,22 @@ function createBoard() {
       square.classList.add((row + col) % 2 === 0 ? "light" : "dark");
       square.dataset.row = row;
       square.dataset.col = col;
+
       const piece = board[row][col];
       square.textContent = piece ? pieces[piece] : "";
+
       square.addEventListener("click", () => handleSquareClick(row, col));
       boardElement.appendChild(square);
     }
   }
 }
 
-// Selección y movimiento
+// Click en casilla
 function handleSquareClick(row, col) {
   if (selectedSquare) {
     const [fromRow, fromCol] = selectedSquare;
     if (fromRow === row && fromCol === col) {
+      // Deseleccionar
       selectedSquare = null;
       createBoard();
       return;
@@ -59,14 +62,20 @@ function handleSquareClick(row, col) {
   }
 }
 
+// Mover pieza
 function movePiece(fromRow, fromCol, toRow, toCol) {
   const piece = board[fromRow][fromCol];
   if (!piece) return;
+
+  // Guardar historial
   moveHistory.push(JSON.parse(JSON.stringify(board)));
+
+  // Actualizar tablero
   board[toRow][toCol] = piece;
   board[fromRow][fromCol] = "";
 }
 
+// Resaltar casilla seleccionada
 function highlightSquare(row, col) {
   createBoard();
   const index = row * 8 + col;
@@ -99,6 +108,5 @@ function toggleMoves() {
 
 // Inicializar
 resetGame();
-
 
 
