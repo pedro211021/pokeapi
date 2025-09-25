@@ -1,8 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: "Segoe UI", sans-serif;
@@ -14,14 +10,9 @@ body {
   color: white;
 }
 
-.container {
-  text-align: center;
-}
+.container { text-align: center; }
 
-h1 {
-  margin-bottom: 20px;
-  font-size: 2rem;
-}
+h1 { margin-bottom: 20px; font-size: 2rem; }
 
 #board {
   display: grid;
@@ -43,17 +34,10 @@ h1 {
   user-select: none;
 }
 
-.dark {
-  background: #769656;
-}
+.dark { background: #769656; }
+.light { background: #eeeed2; }
 
-.light {
-  background: #eeeed2;
-}
-
-.square.highlight {
-  background: #baca44 !important;
-}
+.square.highlight { background: #baca44 !important; }
 
 .controls {
   display: flex;
@@ -71,10 +55,8 @@ button {
   cursor: pointer;
   transition: background 0.3s;
 }
+button:hover { background: #666; }
 
-button:hover {
-  background: #666;
-}
 
 
 
