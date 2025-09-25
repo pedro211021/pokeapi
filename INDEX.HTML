@@ -1,12 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ajedrez - PokeAPIApp</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>pronto ajedrez</h1>
-    <script src="script.js"></script>
+  <main>
+    <div class="topbar">
+      <div class="status" id="status">Turno: White</div>
+      <div class="controls">
+        <button id="restartBtn">Reiniciar</button>
+        <button id="undoBtn">Deshacer</button>
+      </div>
+    </div>
+
+    <div class="board-container">
+      <div id="board" class="board"></div>
+      <aside class="sidepanel">
+        <h3>Historial</h3>
+        <ol id="history" class="history"></ol>
+      </aside>
+    </div>
+
+    <footer class="footer">
+      <small>Juego de ajedrez simple — sin enroque ni en passant. Promoción a Dama automática.</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
