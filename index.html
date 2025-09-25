@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ajedrez - PokeAPIApp</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajedrez</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main>
-    <div class="topbar">
-      <div class="status" id="status">Turno: White</div>
-      <div class="controls">
-        <button id="restartBtn">Reiniciar</button>
-        <button id="undoBtn">Deshacer</button>
+  <div class="container">
+    
+    <!-- Columna izquierda -->
+    <div class="left-panel">
+      <div id="turn">Turno: White</div>
+      <div id="board"></div>
+      <div class="buttons">
+        <button onclick="restartGame()">Reiniciar</button>
+        <button onclick="undoMove()">Deshacer</button>
       </div>
     </div>
 
-    <div class="board-container">
-      <div id="board" class="board"></div>
-      <aside class="sidepanel">
-        <h3>Historial</h3>
-        <ol id="history" class="history"></ol>
-      </aside>
+    <!-- Columna derecha -->
+    <div id="history">
+      <h2>Historial</h2>
+      <ul id="movesList"></ul>
     </div>
 
-    <footer class="footer">
-      <small>Juego de ajedrez simple — sin enroque ni en passant. Promoción a Dama automática.</small>
-    </footer>
-  </main>
+  </div>
 
   <script src="script.js"></script>
 </body>
